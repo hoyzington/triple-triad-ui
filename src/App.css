@@ -1,4 +1,23 @@
-.App {
+#main-container {
+  height: 95vh;
+}
+
+/* header {
+ top: 0px;
+  height: 5vh;
+ } */ 
+
+header, footer {
+  /* bottom: 0px; */
+  height: 5vh;
+  padding: 1vh 0vw;
+  justify-content: center;
+  display: flex;
+  /* align-items: center; */
+  /* background-color: dimgray; */
+}
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +54,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

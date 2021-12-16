@@ -7,6 +7,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  background-image: url('../public/stepan-sargsyan-hxk3iYQyjG0-unsplash.jpg');
+  background-size: cover;
+  background-color: burlywood;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
