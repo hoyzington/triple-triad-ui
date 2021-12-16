@@ -1,4 +1,3 @@
-import './App.css';
 import {
   BrowserRouter as Router,
   Route,
@@ -6,15 +5,16 @@ import {
 import NavBar from './components/navbar/NavBar'
 import MainContainer from './components/MainContainer'
 import Footer from './components/Footer'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 function App() {
   return (
     <Router>
-      {/* <NavBar /> */}
-      {/* <Route exact path="/" /> */}
-      <MainContainer />
-      <Footer />
+      <div id='main'>
+        <NavBar />
+        <MainContainer />
+        <Footer />
+      </div>
     </Router>
   );
 }

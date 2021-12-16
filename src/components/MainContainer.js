@@ -1,5 +1,3 @@
-import React from 'react';
-
-const MainContainer = () => (<div id='main-container'></div>);
+const MainContainer = () => (<div id='body-container'></div>);
 
 export default MainContainer;

@@ -1,13 +1,15 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
+  width: 100vw;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-#root {
   background-image: url('../public/stepan-sargsyan-hxk3iYQyjG0-unsplash.jpg');
   background-size: cover;
   background-color: burlywood;
