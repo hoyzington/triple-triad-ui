@@ -1,12 +1,21 @@
+import './index.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import reportWebVitals from './reportWebVitals';
+
 import App from './App';
-import './index.css';
+import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import NavBar from './components/navbar/NavBar'
+import Footer from './components/Footer'
 
 ReactDOM.render(
   <React.StrictMode>
+    <BrowserRouter>
+    <NavBar />
     <App />
+    <Footer />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
