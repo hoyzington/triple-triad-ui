@@ -5,22 +5,24 @@
 nav, footer {
   display: flex;
   justify-content: center;
-  font-weight: 500;
   align-items: center;
-  /* background-color: dimgray; */
+  height: 5vh;
+  font-weight: 500;
+  /* background-color: hsla(0, 0%, 41%, 0.5); */
 }
 
 footer {
   bottom: 0px;
-  height: 5vh;
 }
 
 nav {
   top: 0px;
-  height: 5vh;
 }
 
-.nav-link {
-  margin: 0vw, 1.25vw;
-  font-weight: 500;
+/* #navbar {
+  background-color: hsla(0, 0%, 41%, 0.5);
+} */
+
+.navlink {
+  margin: 0vh 1.25vw;
 }

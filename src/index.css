@@ -19,3 +19,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+a:link, a:visited, a:active, a:focus {
+  text-decoration-line: none;
+  color: black;
+  outline-style: none;
+}
