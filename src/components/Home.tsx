@@ -1,7 +1,5 @@
 const Home = () => (
-    <div id="brand">
-        Triple Triad
-    </div>
+    <div id="home"></div>
 );
 
 export default Home;
