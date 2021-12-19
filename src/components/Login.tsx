@@ -1,7 +1,7 @@
-import { SyntheticEvent, useState } from "react";
-import { Navigate } from "react-router-dom";
-import Principal from "../models/Principal";
-import authenticate from "../remote/auth-service";
+import { SyntheticEvent, useState } from 'react';
+import { Navigate } from 'react-router-dom';
+import Principal from '../models/Principal';
+import authenticate from '../remote/auth-service';
 
 interface ILoginProps {
     currentUser: Principal | undefined,
@@ -36,7 +36,7 @@ export default function Login(props: ILoginProps) {
         props.currentUser ? <Navigate to="/dashboard"/> : 
         <>
             <h4>Log in to your account</h4>
-            <div id='body-container'>
+            <div id="body-container">
                 <input type="text" id="username" placeholder="Enter your username" onChange={updateUsername}/>
                 <br/><br/>
                 <input type="password" id="password" placeholder="Enter your password" onChange={updatePassword}/>

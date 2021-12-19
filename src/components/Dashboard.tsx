@@ -1,5 +1,5 @@
-import { Navigate } from "react-router-dom";
-import Principal from "../models/Principal";
+import { Navigate } from 'react-router-dom';
+import Principal from '../models/Principal';
 
 interface IDashboardProps {
     currentUser: Principal | undefined;

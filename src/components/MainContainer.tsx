@@ -10,7 +10,7 @@ import Game from './game/Game';
 export default function MainContainer() {
     // let [authUser, setAuthUser] = useState(undefined as Principal | undefined);
     return (
-        <div id='body-container'>
+        <div id="body-container">
             <Brand />
             <Routes>
                 <Route path="/" element={<Home />}/>
