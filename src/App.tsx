@@ -3,7 +3,7 @@ import MainContainer from './components/MainContainer'
 import Footer from './components/Footer'
 import './style/App.css';
 
-function App() {
+export default function App() {
   return (
     <>
       <NavBar />
@@ -12,5 +12,3 @@ function App() {
     </>
   );
 }
-
-export default App;

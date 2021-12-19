@@ -1,7 +1,7 @@
-import { Principal } from "../models/Principal";
-import { appClient } from "./app-client"
+import Principal from "../models/Principal";
+import appClient from "./app-client";
 
-export const authenticate = async (credentials: { username: string, password: string }) => {
+const authenticate = async (credentials: { username: string, password: string }) => {
 
     let resp = await appClient.post('/auth', credentials);
 
@@ -20,3 +20,5 @@ export const authenticate = async (credentials: { username: string, password: st
     // return new Principal(resp., 'wsingleton', 'ADMIN');
 
 }
+
+export default authenticate;

@@ -1,34 +1,21 @@
+// import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+// import Principal from './models/Principal';
 import Home from './Home';
+// import Login from './components/Login';
+// import Dashboard from './components/Dashboard';
 import Game from './game/Game';
 
-function MainContainer() {
+export default function MainContainer() {
+    // let [authUser, setAuthUser] = useState(undefined as Principal | undefined);
     return (
         <div id='body-container'>
             <Routes>
-                <Route path="/home" element={<Home />}/>
+                <Route path="/" element={<Home />}/>
+                {/* <Route path="/login" element={<Login currentUser={authUser} setCurrentUser={setAuthUser}/>} /> */}
+                {/* <Route path="/dashboard" element={<Dashboard currentUser={authUser}/>} /> */}
                 <Route path="/game" element={<Game />}/>
             </Routes>
         </div>
     );
 } 
-
-export default MainContainer;
-
-// import React, { useState } from 'react';
-// import { DashboardComponent } from './components/DashboardComponent';
-// import { LoginComponent } from './components/LoginComponent';
-// import { Principal } from './models/Principal';
-// import HomeComponent from './components/HomeComponent';
-
-//   let [authUser, setAuthUser] = useState(undefined as Principal | undefined);
-
-//   return (
-//     <Routes>
-//       <Route path="/" element={<HomeComponent />} />
-//       <Route path="/login" element={<LoginComponent currentUser={authUser} setCurrentUser={setAuthUser}/>} />
-//       <Route path="/dashboard" element={<DashboardComponent currentUser={authUser}/>} />
-//       <Route path="/*" element={<HomeComponent />} />
-//     </Routes>
-//   );
-// }

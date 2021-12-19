@@ -1,14 +1,14 @@
 import { SyntheticEvent, useState } from "react";
 import { Navigate } from "react-router-dom";
-import { Principal } from "../models/Principal";
-import { authenticate } from "../remote/auth-service";
+import Principal from "../models/Principal";
+import authenticate from "../remote/auth-service";
 
 interface ILoginProps {
     currentUser: Principal | undefined,
     setCurrentUser: (nextUser: Principal| undefined) => void
 }
 
-export function Login(props: ILoginProps) {
+export default function Login(props: ILoginProps) {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -46,5 +46,4 @@ export function Login(props: ILoginProps) {
             </div>
         </>
     );
-
 }

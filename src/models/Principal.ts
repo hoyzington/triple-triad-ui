@@ -1,5 +1,4 @@
-export class Principal {
-
+export default class Principal {
     id: string;
     username: string;
     role: string;
@@ -9,5 +8,4 @@ export class Principal {
         this.username = un;
         this.role = role;
     }
-    
 }
