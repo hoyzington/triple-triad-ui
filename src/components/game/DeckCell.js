@@ -1,17 +1,15 @@
 import Card from './Card';
 
-export default function DeckCell(props) {
+export default function DeckCell({ card, player, position }) {
 
     function renderCard() {
-        const card = props.card;
-        if (card) {
-            return (<Card data={card}/>);
-        }
+        return (<Card data={card} player={player} />);
     }
 
+    const klass = `deck-cell deck-cell-${position}`
+
     return (
-        <div id='deck-cell'>
-            Hello from DeckCell
+        <div className={klass}>
             {renderCard()}
         </div>
     );

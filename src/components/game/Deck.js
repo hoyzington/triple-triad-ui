@@ -1,26 +1,18 @@
 import DeckCell from './DeckCell';
 
-export default function Deck(props) {
-
-    function createDeckCell() {
-        
-    }
+export default function Deck({ cards, player }) {
 
     function createDeckCells() {
-        let res = "";
-        for (let i = 0; i < props.cards.length; i++) {
-            const card = props.cards[i];
-            res += card["img"];
-        }
-            // const pos = i.toString();
-            return (
-                <>{res}</>
-            );
+        let position = 1;
+        return cards.map(card => {
+            return (<DeckCell key={position} card={card} player={player} position={position++} />);
+        });
     }
 
+    const id = `deck-${player}`
+
     return (
-        <div id='deck'>
-            {/* {props.cards[0]["img"]} */}
+        <div id={id} className="deck">
             {createDeckCells()}
         </div>
     );

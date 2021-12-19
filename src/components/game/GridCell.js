@@ -1,5 +1,5 @@
 export default function GridCell() {
     return (
-        <div id="grid-cell"></div>
+        <div className="grid-cell"></div>
     );
 } 

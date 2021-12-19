@@ -1,8 +1,10 @@
-export default function Card(props) {
+export default function Card({ data, player }) {
+
+    const klass = `card player-${player}-card`;
+
     return (
-        <div id="card">
-            Hello from Card
-            {props.data["img"]}
+        <div className={klass}>
+            Card {data["img"]}
         </div>
     );
 } 

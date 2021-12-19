@@ -1,5 +1,5 @@
-export default function Score() {
+export default function Score({ id, num }) {
     return (
-        <div id="score"></div>
+        <div id={id} className="score" >{num}</div>
     );
 } 
