@@ -1,4 +1,4 @@
-function Card(props) {
+export default function Card(props) {
     return (
         <div id="card">
             Hello from Card
@@ -6,5 +6,3 @@ function Card(props) {
         </div>
     );
 } 
-
-export default Card;

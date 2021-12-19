@@ -1,6 +1,6 @@
 import DeckCell from './DeckCell';
 
-function Deck(props) {
+export default function Deck(props) {
 
     function createDeckCell() {
         
@@ -25,5 +25,3 @@ function Deck(props) {
         </div>
     );
 } 
-
-export default Deck;

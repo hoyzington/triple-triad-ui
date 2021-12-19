@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -10,18 +12,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('../public/stepan-sargsyan-hxk3iYQyjG0-unsplash.jpg');
+  background-image: url('../../public/stepan-sargsyan-hxk3iYQyjG0-unsplash.jpg');
   background-size: cover;
   background-color: burlywood;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-a:link, a:visited, a:active, a:focus {
-  text-decoration-line: none;
-  color: black;
-  outline-style: none;
 }

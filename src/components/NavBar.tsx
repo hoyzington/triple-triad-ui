@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-function NavBar() {
+export default function NavBar() {
     return (
         <nav>
             <span id="navbar">
@@ -22,5 +22,3 @@ collection
     build deck
     buy pack
 */
-
-export default NavBar;

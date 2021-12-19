@@ -3,7 +3,7 @@ import Grid from './Grid';
 import Score from './Score';
 import StatusBar from './StatusBar';
 
-function Game() {
+export default function Game() {
     let playerOneCards = [{"img": "1"}, {"img": "2"}, {"img": "3"}, {"img": "4"}, {"img": "5"}];
     let playerTwoCards = [{"img": "1"}, {"img": "2"}, {"img": "3"}, {"img": "4"}, {"img": "5"}];
     let playerOneScore = 5, playerTwoScore = 5;
@@ -22,5 +22,3 @@ function Game() {
         </div>
     );
 } 
-
-export default Game;

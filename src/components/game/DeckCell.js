@@ -1,6 +1,6 @@
 import Card from './Card';
 
-function DeckCell(props) {
+export default function DeckCell(props) {
 
     function renderCard() {
         const card = props.card;
@@ -16,5 +16,3 @@ function DeckCell(props) {
         </div>
     );
 } 
-
-export default DeckCell;
