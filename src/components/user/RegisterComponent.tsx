@@ -40,11 +40,11 @@ export function RegisterComponent(props: IRegisterProps) {
 
     let regNewUser = async () => {
         // --- test
-        setFirstName ( "aaaa");
-        setLastName ( "aaaa");
-        setEmail ( "aaaa@gmail.com");
-        setUsername ( "aaaa");
-        setPassword ( "a1aaDa#aaa");
+        // setFirstName ( "aaaa");
+        // setLastName ( "aaaa");
+        // setEmail ( "aaaa@gmail.com");
+        // setUsername ( "aaaa");
+        // setPassword ( "a1aaDa#aaa");
         // --- test //
 
         if (!firstName || !lastName || !email || !username || !password) {
