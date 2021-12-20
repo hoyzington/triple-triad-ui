@@ -53,6 +53,7 @@ nav {
 
 #game, #grid, #status-bar, .deck, .deck-cell, .score, #brand, .card {
   position: absolute;
+  z-index: -1;
 }
 
 #game {
