@@ -1,5 +1,7 @@
-export default function GridCell() {
+export default function GridCell({ gridCellClick }) {
     return (
-        <div className="grid-cell"></div>
+        <a href="#">
+            <div className="grid-cell" onClick={() => gridCellClick()}></div>
+        </a>
     );
 } 
