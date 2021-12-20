@@ -1,7 +1,6 @@
-import Principal from '../models/Principal';
 import appClient from './app-client';
 
-const authenticate = async (credentials: { username: string, password: string }) => {
+export const authenticate = async (credentials: { username: string, password: string }) => {
 
     let resp = await appClient.post("/auth", credentials);
 
@@ -9,16 +8,10 @@ const authenticate = async (credentials: { username: string, password: string })
         throw resp.data;
     }
 
-    // TODO: refactor backend to return a Principal object rather than no content
-
-    if (resp.status == 204) {
-        console.log("Authentication success!");
+    if (resp.status == 200) {
+        console.log('Authentication success!');
     }
 
-    // return resp.data;
-    return new Principal("123456789", "wsingleton", "ADMIN");
-    // return new Principal(resp., 'wsingleton', 'ADMIN');
+    return resp.data;
 
 }
-
-export default authenticate;
