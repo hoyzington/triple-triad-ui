@@ -1,10 +1,12 @@
 import GridCell from './GridCell';
 
-export default function Grid({ func }) {
+export default function Grid({ cards, func }) {
 
   function createGridCells() {
-    return [...Array(9)].map((el, i) => {
-      return (<GridCell key={i} id={i} gridCellClick={func} />)
+    console.log(cards.length)
+    return cards.map((card, i) => {
+      console.log(card)
+      return (<GridCell key={i} id={i} card={card} gridCellClick={func} />)
     })
   }
 
