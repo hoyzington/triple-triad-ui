@@ -1,4 +1,4 @@
-export class PrincipalExtention {
+export default class PrincipalExtension {
 
   id: string;
   username: string;

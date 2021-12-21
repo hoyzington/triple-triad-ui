@@ -6,14 +6,14 @@ import Home from './Home';
 // import Login from './components/Login';
 // import Dashboard from './components/Dashboard';
 import Game from './game/Game';
-import { PrincipalExtention } from "../models/PrincipalExtention";
+import PrincipalExtension from "../models/PrincipalExtension";
 import { LoginComponent } from '../components/user/LoginComponent';
 import { Dashboard } from './Dashboard';
 import { RegisterComponent } from '../components/user/RegisterComponent';
 
 export default function MainContainer() {
   // let [authUser, setAuthUser] = useState(undefined as Principal | undefined);
-  let [aUser, setAUser] = useState(undefined as PrincipalExtention | undefined);
+  let [aUser, setAUser] = useState(undefined as PrincipalExtension | undefined);
 
   return (
     <div id="body-container">

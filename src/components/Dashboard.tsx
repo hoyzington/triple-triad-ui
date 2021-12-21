@@ -1,10 +1,9 @@
-import { Button } from "react-bootstrap";
-import { Navigate } from "react-router-dom";
-import { PrincipalExtention } from '../models/PrincipalExtention';
+import { Navigate } from 'react-router-dom';
+import PrincipalExtension from "./../models/PrincipalExtension";
 
 interface IDashboardProps {
-  aUser: PrincipalExtention | undefined,
-  setAUser: (aUser: PrincipalExtention| undefined) => void
+  aUser: PrincipalExtension | undefined,
+  setAUser: (aUser: PrincipalExtension| undefined) => void
 }
 
 export function Dashboard(props: IDashboardProps) {
@@ -23,16 +22,16 @@ let logout = () => {
 
 return (
   !props.aUser ? <Navigate to="/login"/> :
-  <>
-    <div>
-      <h2>dashboard...</h2>
-      <Button variant="primary" onClick={logout}>Log out</Button>{' '}
-      <div > 
-      <h1>Welcome, {props.aUser.username}!</h1>
-      <h1>id, {props.aUser.id}!</h1>
-      <h1>AccountType, {props.aUser.accountType}!</h1>
+    <>
+      <div>
+        <h2>dashboard...</h2>
+        <button type="button" onClick={logout}>Log out</button>{' '}
+        <div > 
+          <h1>Welcome, {props.aUser.username}!</h1>
+          <h1>id, {props.aUser.id}!</h1>
+          <h1>AccountType, {props.aUser.accountType}!</h1>
         </div>
-        </div>
+      </div>
     </>
   );
 }

@@ -1,12 +1,12 @@
 import { SyntheticEvent, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 
-import { PrincipalExtention } from '../../models/PrincipalExtention';
+import PrincipalExtension from '../../models/PrincipalExtension';
 import { register } from '../../remote/user-service';
 
 interface IRegisterProps {
-  aUser: PrincipalExtention | undefined,
-  setAUser: (aUser: PrincipalExtention| undefined) => void
+  aUser: PrincipalExtension | undefined,
+  setAUser: (aUser: PrincipalExtension| undefined) => void
 }
 
 export function RegisterComponent(props: IRegisterProps) {

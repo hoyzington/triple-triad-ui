@@ -1,6 +1,6 @@
 import { SyntheticEvent, useState } from "react";
 import { Navigate } from "react-router-dom";
-import { PrincipalExtention } from '../../models/PrincipalExtention';
+import PrincipalExtension from '../../models/PrincipalExtension';
 import { authenticate } from "../../remote/auth-service";
 
 // interface ILoginProps {
@@ -8,8 +8,8 @@ import { authenticate } from "../../remote/auth-service";
 //     setCurrentUser: (nextUser: Principal| undefined) => void
 // }
 interface ILoginProps {
-  aUser: PrincipalExtention | undefined,
-  setAUser: (aUser: PrincipalExtention| undefined) => void
+  aUser: PrincipalExtension | undefined,
+  setAUser: (aUser: PrincipalExtension| undefined) => void
 }
 
 export function LoginComponent(props: ILoginProps) {
