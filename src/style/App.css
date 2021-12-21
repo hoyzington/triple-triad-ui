@@ -1,8 +1,10 @@
-nav, footer, #body-container, #status-bar {
+nav, footer, #main-container, #status-bar {
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* justify-self: auto;
+  align-self: auto; */
   width: 100vw;
 }
 
@@ -32,37 +34,44 @@ nav {
   margin: 0vh 1.75vw;
 }
 
-#body-container {
-  position: absolute;
+#main-container {
   left: 50vw;
   top: 7vh;
   height: 86vh;
-  width: 0px;
+  width: 0vh;
   background-color: hsla(0, 0%, 41%, 0.5);
 }
 
 #brand {
   top: 9vh;
   font-family: 'Grechen Fuemen', cursive;
-  /* height: 100px;
-  width: 900px; */
   font-size: 26vh;
   color: rgba(99, 50, 15, 0.35);
   /* background-color: hsla(0, 0%, 41%, 0.5); */
 }
 
-#game, #grid, #status-bar, .deck, .deck-cell, .score, #brand, .card {
+#collection, #game, #grid, #status-bar, .deck, .deck-cell, .score, #brand, .card {
   position: absolute;
   z-index: -1;
 }
 
-#game {
+#collection, #game {
   height: 75vh;
   width: 93.75vh;
-  /* left: -409px;
-  height: 645px;
-  width: 818px; */
-  /* background-color: hsla(0, 0%, 41%, 0.5); */
+  background-color: hsla(0, 0%, 41%, 0.5);
+}
+
+#collection {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: auto auto auto auto auto auto;
+  /* grid-template-rows: 1fr 1fr 1fr; */
+  column-gap: 17vh;
+  row-gap: 20.75vh;
+  justify-content: center;
+  align-content: center;
+  width: 110vh;
+  /* min-height: max-content; */
 }
 
 #status-bar {
@@ -96,19 +105,15 @@ nav {
 
 #grid {
   display: grid;
-  grid-auto-flow: column;
+  grid-auto-flow: row;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   top: 3vh;
   left: 23.5%;
   height: 62.5vh;
   width: 50.5vh;
-  /* top: 50px;
-  left: 207px;
-  height: 505px;
-  width: 403px; */
   /* border: .2vh solid rgba(99, 50, 15, 0.5); */
-  border-radius: 4px;
+  /* border-radius: 4px; */
   /* background-color: hsla(0, 0%, 41%, 0.5); */
 }
 
