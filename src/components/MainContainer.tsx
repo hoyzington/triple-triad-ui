@@ -10,21 +10,23 @@ import PrincipalExtension from "../models/PrincipalExtension";
 import { LoginComponent } from '../components/user/LoginComponent';
 import { Dashboard } from './Dashboard';
 import { RegisterComponent } from '../components/user/RegisterComponent';
+import Collection from './collection/Collection';
 
 export default function MainContainer() {
   // let [authUser, setAuthUser] = useState(undefined as Principal | undefined);
   let [aUser, setAUser] = useState(undefined as PrincipalExtension | undefined);
 
   return (
-    <div id="body-container">
+    <div id="main-container">
       <Brand />
       <Routes>
+        <Route path="/*" element={<Home />} />
         <Route path="/" element={<Home />}/>
         <Route path="/login" element={<LoginComponent aUser={aUser} setAUser={setAUser}/>} />
         <Route path="/register" element={<RegisterComponent aUser={aUser} setAUser={setAUser}/>} />
         <Route path="/dashboard" element={<Dashboard aUser={aUser} setAUser={setAUser}/>} />
-        <Route path="/*" element={<Home />} />
         <Route path="/game" element={<Game />}/>
+        <Route path="/collection" element={<Collection />}/>
       </Routes>
     </div>
   );
