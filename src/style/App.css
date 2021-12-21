@@ -1,180 +1,178 @@
-nav,
-footer,
-#body-container,
-#status-bar {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
+nav, footer, #body-container, #status-bar {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
 }
 
-nav,
-footer {
-    height: 7vh;
-    background-color: hsla(0, 0%, 41%, 0.35);
-    font-family: 'IM Fell DW Pica', serif;
-    font-weight: 500;
-    color: rgba(0, 0, 0, 0.8);
+nav, footer {
+  height: 7vh;
+  background-color: hsla(0, 0%, 41%, 0.35);
+  font-family: 'IM Fell DW Pica', serif;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.8);
 }
 
 footer {
-    bottom: 0px;
-    font-size: 2.5vh;
+  bottom: 0px;
+  font-size: 2.5vh;
 }
 
 nav {
-    top: 0px;
-    font-size: 3vh;
+  top: 0px;
+  font-size: 3vh;
 }
-
 
 /* #navbar {
   background-color: hsla(0, 0%, 41%, 0.5);
 } */
 
 .navlink {
-    margin: 0vh 1.75vw;
+  margin: 0vh 1.75vw;
 }
 
 #body-container {
-    position: absolute;
-    left: 50vw;
-    top: 7vh;
-    height: 86vh;
-    width: 0px;
-    background-color: hsla(0, 0%, 41%, 0.5);
+  position: absolute;
+  left: 50vw;
+  top: 7vh;
+  height: 86vh;
+  width: 0px;
+  background-color: hsla(0, 0%, 41%, 0.5);
 }
 
 #brand {
-    top: 9vh;
-    font-family: 'Grechen Fuemen', cursive;
-    /* height: 100px;
+  top: 9vh;
+  font-family: 'Grechen Fuemen', cursive;
+  /* height: 100px;
   width: 900px; */
-    font-size: 26vh;
-    color: rgba(99, 50, 15, 0.35);
-    /* background-color: hsla(0, 0%, 41%, 0.5); */
+  font-size: 26vh;
+  color: rgba(99, 50, 15, 0.35);
+  /* background-color: hsla(0, 0%, 41%, 0.5); */
 }
 
-#game,
-#grid,
-#status-bar,
-.deck,
-.deck-cell,
-.score,
-#brand {
-    position: absolute;
-    z-index: -1;
+#game, #grid, #status-bar, .deck, .deck-cell, .score, #brand {
+  position: absolute;
+  z-index: -1;
 }
 
 #game {
-    height: 75vh;
-    width: 93.75vh;
-    /* left: -409px;
+  height: 75vh;
+  width: 93.75vh;
+  /* left: -409px;
   height: 645px;
   width: 818px; */
-    /* background-color: hsla(0, 0%, 41%, 0.5); */
+  /* background-color: hsla(0, 0%, 41%, 0.5); */
 }
 
 #status-bar {
-    left: 6vh;
-    bottom: 0.5vh;
-    height: 7vh;
-    width: 82vh;
-    font-family: 'Grechen Fuemen', cursive;
-    font-size: 5.5vh;
-    font-weight: 600;
-    color: rgba(37, 121, 62, 0.89);
-    letter-spacing: .25vh;
-    /* background-color: hsla(0, 0%, 41%, 0.5); */
+  left: 6vh;
+  bottom: 0.5vh;
+  height: 7vh;
+  width: 82vh;
+  font-family: 'Grechen Fuemen', cursive;
+  font-size: 5.5vh;
+  font-weight: 600;
+  color: rgba(37, 121, 62, 0.89);
+  letter-spacing: .25vh;
+  /* background-color: hsla(0, 0%, 41%, 0.5); */
 }
 
 .score {
-    font-family: 'Nanum Myeongjo', serif;
-    font-size: 7vh;
-    font-style: normal;
-    color: lavender;
-    text-shadow: -.25vh 0 black, 0 .25vh black, .25vh 0 black, 0 -.25vh black;
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 7vh;
+  font-style: normal;
+  color: lavender;
+  text-shadow: -.25vh 0 black, 0 .25vh black, .25vh 0 black, 0 -.25vh black;
 }
 
 #player-1-score {
-    left: 0vh;
+  left: 0vh;
 }
 
 #player-2-score {
-    left: 78.2vh;
+  left: 78.2vh;
 }
 
 #grid {
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    top: 3vh;
-    left: 23.5%;
-    height: 62.5vh;
-    width: 50.5vh;
-    /* top: 50px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  top: 3vh;
+  left: 23.5%;
+  height: 62.5vh;
+  width: 50.5vh;
+  /* top: 50px;
   left: 207px;
   height: 505px;
   width: 403px; */
-    /* border: .2vh solid rgba(99, 50, 15, 0.5); */
-    border-radius: 4px;
-    /* background-color: hsla(0, 0%, 41%, 0.5); */
+  /* border: .2vh solid rgba(99, 50, 15, 0.5); */
+  border-radius: 4px;
+  /* background-color: hsla(0, 0%, 41%, 0.5); */
 }
 
 .grid-cell {
-    height: 20vh;
-    width: 16vh;
-    border: .3vh solid rgba(99, 50, 15, 0.5);
-    border-radius: 4px;
-    /* background-color: hsla(0, 0%, 41%, 0.5); */
+  height: 20vh;
+  width: 16vh;
+  border: .3vh solid rgba(99, 50, 15, 0.5);
+  border-radius: 4px;
+  /* background-color: hsla(0, 0%, 41%, 0.5); */
 }
 
 .deck {
-    top: 3.25vh;
-    height: 61vh;
-    background-color: hsla(0, 0%, 41%, 0.5);
+  top: 3.25vh;
+  height: 61vh;
+  /* background-color: hsla(0, 0%, 41%, 0.5); */
 }
 
 #deck-1 {
-    left: 0vh;
+  left: 0vh;
 }
 
 #deck-2 {
-    left: 78.2vh;
+  left: 78.2vh;
 }
 
 .deck-cell-1 {
-    top: 0vh;
+  top: 0vh;
 }
 
 .deck-cell-2 {
-    top: 10.4vh;
+  top: 10.4vh;
 }
 
 .deck-cell-3 {
-    top: 20.8vh;
+  top: 20.8vh;
 }
 
 .deck-cell-4 {
-    top: 31.2vh;
+  top: 31.2vh;
 }
 
 .deck-cell-5 {
-    top: 41.6vh;
+  top: 41.6vh;
 }
 
 .card {
-    height: 19.5vh;
-    width: 15.5vh;
-    border: .25vh solid rgba(0, 0, 0, 0.8);
+  top: 0vh;
+  height: 19.5vh;
+  width: 15.5vh;
+  border: .25vh solid rgba(0, 0, 0, 0.8);
 }
 
 .player-1-card {
-    background-image: linear-gradient(pink, rgb(199, 61, 84));
+  background-image: linear-gradient(pink, rgb(199, 61, 84));
+}
+
+.player-1-card.chosen {
+  box-shadow: 0px 0px 12px rgb(192, 31, 58);
 }
 
 .player-2-card {
-    background-image: linear-gradient(rgb(171, 204, 247), rgb(61, 84, 216));
+  background-image: linear-gradient(rgb(171, 204, 247), rgb(61, 84, 216));
+}
+
+.player-2-card.chosen {
+  box-shadow: 0px 0px 12px rgb(61, 84, 216);
 }
