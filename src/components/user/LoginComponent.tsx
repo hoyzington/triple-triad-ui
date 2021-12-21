@@ -2,14 +2,15 @@ import { SyntheticEvent, useState } from "react";
 import { Navigate } from "react-router-dom";
 import PrincipalExtension from '../../models/PrincipalExtension';
 import { authenticate } from "../../remote/auth-service";
+import User from '../../models/User';
 
 // interface ILoginProps {
 //     currentUser: Principal | undefined,
 //     setCurrentUser: (nextUser: Principal| undefined) => void
 // }
 interface ILoginProps {
-  aUser: PrincipalExtension | undefined,
-  setAUser: (aUser: PrincipalExtension| undefined) => void
+  aUser: User | undefined,
+  setAUser: (aUser: User| undefined) => void
 }
 
 export function LoginComponent(props: ILoginProps) {
@@ -40,6 +41,7 @@ export function LoginComponent(props: ILoginProps) {
 
     try {
       let principal = await authenticate({username, password});
+      console.log(principal);
       props.setAUser(principal);
       window.sessionStorage.setItem("user_cached", JSON.stringify(principal));
     } catch (e: any) {

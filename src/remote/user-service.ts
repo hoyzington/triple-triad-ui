@@ -1,8 +1,9 @@
-import appClient from "./app-client"
+import ttClient from "./TT-Client";
+import User from "../models/User";
 
-export const register = async (newUser: { firstName: string, lastName: string, email: string, username: string, password: string }) => {
+export const register = async (newUser: { username: string, password: string, matchingPassword: string }) => {
 
-  let resp = await appClient.post('/users', newUser);
+  let resp = await ttClient.post('users/registration', newUser);
 
   if (resp.status == 401) {
     throw resp.data;
@@ -12,5 +13,5 @@ export const register = async (newUser: { firstName: string, lastName: string, e
     console.log('User creation success!');
   }
 
-  return resp.data;
+  return resp.data as User;
 }
