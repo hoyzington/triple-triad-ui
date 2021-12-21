@@ -1,9 +1,10 @@
 import { Navigate } from 'react-router-dom';
 import PrincipalExtension from "./../models/PrincipalExtension";
+import User from '../models/User';
 
 interface IDashboardProps {
-  aUser: PrincipalExtension | undefined,
-  setAUser: (aUser: PrincipalExtension| undefined) => void
+  aUser: User | undefined,
+  setAUser: (aUser: User| undefined) => void
 }
 
 export function Dashboard(props: IDashboardProps) {

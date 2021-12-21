@@ -3,6 +3,8 @@ import Deck from './Deck';
 import Grid from './Grid';
 import StatusBar from './StatusBar';
 
+let cardList = JSON.parse(sessionStorage.getItem('cardList'));
+
 export default function Game() {
 
   const deck1 = [
@@ -19,7 +21,7 @@ export default function Game() {
     {"id": "4", "player": "2"},
     {"id": "5", "player": "2"},
   ];
-  const status = {player1: "5", player2: "5", message: "bigTimePlayer's turn!"}
+  const status = {player1: "5", player2: "5", message: "[BIG SHOT]'s turn!"}
 
   const [chosenCard, setChosenCard] = useState(null);
   const [playedCards, setPlayedCards] = useState([...Array(9)]);
@@ -69,7 +71,7 @@ export default function Game() {
     return null;
   }
 
-  return (
+  return (<>
     <div id="game">
       <Grid cards={playedCards} func={handleGridCellClick} />
       <StatusBar status={status} />
@@ -86,5 +88,6 @@ export default function Game() {
         func={handleCardClick}
       />
     </div>
+    </>
   );
 } 

@@ -1,34 +1,24 @@
 import { SyntheticEvent, useState } from 'react';
 import { Navigate } from 'react-router-dom';
+import RegisterUser from '../../models/RegisterUser';
+import User from "../../models/User";
 
 import PrincipalExtension from '../../models/PrincipalExtension';
 import { register } from '../../remote/user-service';
 
 interface IRegisterProps {
-  aUser: PrincipalExtension | undefined,
-  setAUser: (aUser: PrincipalExtension| undefined) => void
+  aUser: User | undefined,
+  setAUser: (aUser: User| undefined) => void
 }
 
 export function RegisterComponent(props: IRegisterProps) {
 
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [matchingPassword, setMatchingPassword] = useState('');
 
-  let updateFirstName = (e: SyntheticEvent) => {
-    setFirstName((e.target as HTMLInputElement).value);
-  }
-
-  let updateLastName = (e: SyntheticEvent) => {
-    setLastName((e.target as HTMLInputElement).value);
-  }
-
-  let updateEmail = (e: SyntheticEvent) => {
-    setEmail((e.target as HTMLInputElement).value);
-  }
 
   let updateUsername = (e: SyntheticEvent) => {
     setUsername((e.target as HTMLInputElement).value);
@@ -36,6 +26,10 @@ export function RegisterComponent(props: IRegisterProps) {
 
   let updatePassword = (e: SyntheticEvent) => {
     setPassword((e.target as HTMLInputElement).value);
+  }
+
+  let updateMatchingPassword = (e: SyntheticEvent) => {
+    setMatchingPassword((e.target as HTMLInputElement).value);
   }
 
   let regNewUser = async () => {
@@ -47,13 +41,18 @@ export function RegisterComponent(props: IRegisterProps) {
     // setPassword ( "a1aaDa#aaa");
     // --- test //
 
-    if (!firstName || !lastName || !email || !username || !password) {
+    if (!username || !password || !matchingPassword) {
       setErrorMessage('You must provide a username and password!');
       return;
     }
 
+    if(password != matchingPassword){
+      setErrorMessage('You must enter a matching password');
+      return;
+    }
+
     try {
-      let principal = await register({firstName, lastName, email, username, password});
+      let principal = await register({username, password, matchingPassword});
       props.setAUser(principal);
       window.sessionStorage.setItem("user_cached", JSON.stringify(principal));
     } catch (e: any) {
@@ -66,15 +65,11 @@ export function RegisterComponent(props: IRegisterProps) {
       <>
         <div >
         <h4>Register your account</h4>
-        <input type="text" id="firstName" placeholder="Enter your firstName" onChange={updateFirstName}/>
-          <br/><br/>
-          <input type="text" id="lastName" placeholder="Enter your lastName" onChange={updateLastName}/>
-          <br/><br/>
-          <input type="text" id="email" placeholder="Enter your email" onChange={updateEmail}/>
-          <br/><br/>
           <input type="text" id="username" placeholder="Enter your username" onChange={updateUsername}/>
           <br/><br/>
           <input type="password" id="password" placeholder="Enter your password" onChange={updatePassword}/>
+          <br/><br/>
+          <input type="password" id="matchingPassword" placeholder="Renter your password" onChange={updateMatchingPassword}/>
           <br/><br/>
           <button id="login-button" onClick={regNewUser}>register</button>
           <br/><br/>

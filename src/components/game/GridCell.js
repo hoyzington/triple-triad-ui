@@ -1,7 +1,7 @@
 import Card from "./Card";
 
 export default function GridCell({ card, gridCellClick, id }) {
-  console.log(id)
+  //console.log(id)
   if (card) {
     return (
       <a href="#">
