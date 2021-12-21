@@ -14,7 +14,6 @@ export default function Deck({ cards, player, chosenCard, func }) {
         <DeckCell
           key={card.id}
           card={card}
-          player={player}
           chosen={chosen}
           func={func}
         />
