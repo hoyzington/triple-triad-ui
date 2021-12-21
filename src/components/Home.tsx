@@ -1,12 +1,5 @@
+const Home = () => (
+  <div id="home"></div>
+);
 
-
-export default function Home() {
-
-    return (
-        <>
-            <h4>Home...dddddd</h4>
-            <div id='body-container'> </div>
-        </>
-    );
-
-}
+export default Home;
