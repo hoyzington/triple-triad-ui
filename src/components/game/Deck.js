@@ -1,11 +1,24 @@
 import DeckCell from './DeckCell';
 
-export default function Deck({ cards, player, func }) {
+export default function Deck({ cards, player, chosenCard, func }) {
 
     function createDeckCells() {
-        let position = 1;
         return cards.map(card => {
-            return (<DeckCell key={position} card={card} player={player} position={position++} func={func} />);
+            let chosen;
+            if (chosenCard && card.id === chosenCard.id) {
+                chosen = "true";
+            } else {
+                chosen = "false";
+            }
+            return (
+                <DeckCell
+                    key={card.id}
+                    card={card}
+                    player={player}
+                    chosen={chosen}
+                    func={func}
+                />
+            );
         });
     }
 

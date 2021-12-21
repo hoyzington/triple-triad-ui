@@ -51,7 +51,7 @@ nav {
   /* background-color: hsla(0, 0%, 41%, 0.5); */
 }
 
-#game, #grid, #status-bar, .deck, .deck-cell, .score, #brand {
+#game, #grid, #status-bar, .deck, .deck-cell, .score, #brand, .card {
   position: absolute;
   z-index: -1;
 }
@@ -170,7 +170,7 @@ nav {
 }
 
 .player-2-card {
-  background-image: linear-gradient(rgb(171, 204, 247), rgb(61, 84, 216));
+  background-image: linear-gradient(rgb(171, 204, 247), rgb(47, 73, 221));
 }
 
 .player-2-card.chosen {

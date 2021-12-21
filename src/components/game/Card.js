@@ -1,20 +1,23 @@
 export default function Card(props) {
 
-    const { player, played, data } = props;
-    const klass = `card player-${player}-card`;
+    const { player, chosen, played, data } = props;
+    let klass = `card player-${player}-card`;
 
     if (played === "false") {
+        if (chosen === "true") {
+            klass += " chosen"
+        }
         return (
             <a href="#" onClick={() => props.clickFunc(data)}>
                 <div className={klass}>
-                    Card {data["img"]}
+                    Card {data["id"]}
                 </div>
             </a>
         );
     } else {
         return (
             <div className={klass}>
-                Card {data["img"]}
+                Card {data["id"]}
             </div>
         );
     }
