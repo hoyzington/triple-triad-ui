@@ -1,7 +1,7 @@
 export default function Card(props) {
 
-  const { player, chosen, played, data } = props;
-  let klass = `card player-${player}-card`;
+  const { chosen, played, data } = props;
+  let klass = `card player-${data.player}-card`;
 
   if (played === "false") {
     if (chosen === "true") {
