@@ -1,38 +1,30 @@
 import { Navigate } from 'react-router-dom';
-import PrincipalExtension from "./../models/PrincipalExtension";
-import User from '../models/User';
+import StatisticsComponent from './StatisticsComponent';
+import { getUserFromSession } from '../remote/user-service';
 
-interface IDashboardProps {
-  aUser: User | undefined,
-  setAUser: (aUser: User| undefined) => void
-}
+export function Dashboard() {
 
-export function Dashboard(props: IDashboardProps) {
-  if(!props.aUser){
-    const stored =  window.sessionStorage.getItem("user_cached");
-    if (stored) {
-      props.setAUser(JSON.parse(stored));
-      console.log(props.aUser);
+  let storedUser  =  getUserFromSession ();
+
+  let logout = () => {
+    window.sessionStorage.setItem("user_cached", "");
+    storedUser = null;
+    window.location.reload();
   }
-}
 
-let logout = () => {
-  window.sessionStorage.setItem("user_cached", "");
-  window.location.reload();
-}
-
-return (
-  !props.aUser ? <Navigate to="/login"/> :
-    <>
-      <div>
-        <h2>dashboard...</h2>
-        <button type="button" onClick={logout}>Log out</button>{' '}
-        <div > 
-          <h1>Welcome, {props.aUser.username}!</h1>
-          <h1>id, {props.aUser.id}!</h1>
-          <h1>AccountType, {props.aUser.accountType}!</h1>
+  return (
+    !storedUser ? <Navigate to="/login"/> :
+      <>
+        <div>
+          <h2>{storedUser.username} Dash:</h2>
+          <button type="button" onClick={logout}>Log out</button>{' '}
+          <div > 
+            <h1>Welcome, {storedUser.username}!</h1>
+            <h1>id, {storedUser.id}!</h1>
+            <h1>AccountType, {storedUser.accountType}!</h1>
+          </div>
+          <StatisticsComponent barName="Test" max={JSON.parse(sessionStorage.getItem("cardList")).length} collectionValue={JSON.parse(sessionStorage.getItem("user_cached")).cardCollection.length}/>
         </div>
-      </div>
-    </>
+      </>
   );
 }
