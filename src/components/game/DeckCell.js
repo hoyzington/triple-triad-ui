@@ -1,19 +1,20 @@
 import Card from './Card';
 
-export default function DeckCell({ card, chosen, func }) {
+export default function DeckCell({ card, chosen, func, pos }) {
 
   function renderCard() {
     return (
       <Card
-        data={card}
-        chosen={chosen}
+        card={card}
         played="false"
+        chosen={chosen}
         clickFunc={func}
+        loc={null}
       />
     );
   }
 
-  const klass = `deck-cell deck-cell-${card.id}`
+  const klass = `deck-cell deck-cell-${pos}`
 
   return (
     <div className={klass}>

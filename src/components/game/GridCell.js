@@ -1,20 +1,21 @@
 import Card from "./Card";
 
-export default function GridCell({ card, gridCellClick, id }) {
-  //console.log(id)
+export default function GridCell({ card, played, clickFunc, id, loc, cardClass }) {
+
   if (card) {
     return (
-      <a href="#">
-        <div className="grid-cell" onClick={() => gridCellClick(id)}>
-          <Card data={card} />
+        <div className="grid-cell">
+          <Card card={card} played={played} clickFunc={clickFunc} loc={loc} cardClass={cardClass} />
         </div>
-      </a>
     );
-    } else {
+  } else if (loc) {
     return (
-      <a href="#">
-        <div className="grid-cell" onClick={() => gridCellClick(id)}></div>
-      </a>
+      <div className="grid-cell"></div>
     );
-    }
+  }
+  return (
+    <a href="#">
+      <div className="grid-cell" onClick={() => clickFunc(card, loc)}></div>
+    </a>
+  );
 } 

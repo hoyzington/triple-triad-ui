@@ -80,12 +80,14 @@ export default function Game() {
         player="1"
         chosenCard={isChosenCardPresent("1")}
         func={handleCardClick}
+        klass="game-deck"
       />
       <Deck
         cards={player2Deck}
         player="2"
         chosenCard={isChosenCardPresent("2")}
         func={handleCardClick}
+        klass="game-deck"
       />
     </div>
     </>
