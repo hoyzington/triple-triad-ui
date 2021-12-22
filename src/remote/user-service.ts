@@ -19,9 +19,9 @@ export const register = async (newUser: { username: string, password: string, ma
 export function getUserFromSession ():(User| null) {
 
   let stored =  window.sessionStorage.getItem("user_cached");
-  if (stored =="" ){
-     return  null;
+  if (stored == null || ""){
+    return  null;
   }else{
-    return  JSON.parse(stored);
+    return JSON.parse(stored);
   }
 }

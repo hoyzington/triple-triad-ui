@@ -1,21 +1,10 @@
 import { useState } from "react";
 import Deck from "./../game/Deck";
 import Collection from "./Collection";
+import ttClient from "./../../remote/TT-Client";
 
 export default function CollectionContainer() {
 
-  // const baseCollection = [
-  //   {"id": "1", "player": "1"},
-  //   {"id": "2", "player": "1"},
-  //   {"id": "3", "player": "1"},
-  //   {"id": "4", "player": "1"},
-  //   {"id": "5", "player": "1"},
-  //   {"id": "6", "player": "1"},
-  //   {"id": "7", "player": "1"},
-  //   {"id": "8", "player": "1"},
-  //   {"id": "9", "player": "1"},
-  //   {"id": "10", "player": "1"},
-  // ];
   // console.log(
   //   JSON.parse(sessionStorage.getItem("user_cached")).cardCollection,
   //   "hi",
@@ -29,8 +18,8 @@ export default function CollectionContainer() {
     );
 
   const [hiddenCards, setHiddenCards] = useState([]);
-  // const currentDeck = sessionStorage.getItem("deck") || [];
-  const [newDeck, setNewDeck] = useState([]);
+  const currentDeck = [];
+  const [newDeck, setNewDeck] = useState(currentDeck);
 
   function handleCardClick(card, loc) {
     if (loc === "collection") {
@@ -78,10 +67,16 @@ export default function CollectionContainer() {
     )
   }
 
-  function saveDeck() {
+  function saveDeck(name) {
     const deckSize = newDeck.length;
     if (deckSize === 5) {
-      sessionStorage.setItem("deck", newDeck);
+      const array = newDeck.map(card => card.id);
+      const result = {
+        deckName: name,
+        cards: array,
+        deckOwner: sessionStorage.getItem("user_cached").id,
+      };
+      ttClient.post("/deck/save", result);
     }
   }
 
