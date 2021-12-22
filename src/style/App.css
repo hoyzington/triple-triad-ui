@@ -103,10 +103,11 @@ nav {
 }
 
 #save-button {
-  height: 20vh;
-  width: 4vh;
+  height: 4vh;
+  width: 17vh;
   border-radius: 0.5vh;
   font-size: 3vh;
+  /* font-stretch: ultra-expanded; */
   /* color: rgba(255, 237, 74, 0.938); */
   color: rgba(223, 222, 221, 0.9);
   background-color: rgba(99, 50, 15, 0.5);
