@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Deck from "./../game/Deck";
 import Collection from "./Collection";
+import { Notification } from "./../Notification";
 
 export default function CollectionContainer() {
 
@@ -81,12 +82,33 @@ export default function CollectionContainer() {
   function saveDeck() {
     const deckSize = newDeck.length;
     if (deckSize === 5) {
-      sessionStorage.setItem("deck", newDeck);
+      // TODO: save deck!
+      notify("success", "Deck Saved")
+    }
+  }
+
+
+  const [note, setNote] = useState(["", "", ]);
+
+
+  function notify(type, message) {
+    setNote([type, message]);
+  }
+
+  function notification() {
+    function closeNote() {
+      setNote(false);
+    }
+
+
+    if (note[0]) {
+      return (<Notification note={note} closeFunc={closeNote} />)
     }
   }
 
   return (
     <div id="collection-container">
+      {notification()}
       <Deck
         klass="collection-deck"
         cards={newDeck}

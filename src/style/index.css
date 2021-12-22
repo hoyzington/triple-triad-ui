@@ -25,3 +25,19 @@ a:link, a:active, a:visited {
 .hidden {
   display: none;
 }
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(238, 222, 202);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 50, 15, 0.6);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(110, 60, 25, 0.5);
+}
