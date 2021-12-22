@@ -11,7 +11,7 @@ import { LoginComponent } from '../components/user/LoginComponent';
 import { Dashboard } from './Dashboard';
 import { RegisterComponent } from '../components/user/RegisterComponent';
 import User from '../models/User';
-import Collection from './collection/Collection';
+import CollectionContainer from './collection/CollectionContainer';
 
 export default function MainContainer() {
   // let [authUser, setAuthUser] = useState(undefined as Principal | undefined);
@@ -27,7 +27,7 @@ export default function MainContainer() {
         <Route path="/register" element={<RegisterComponent aUser={aUser} setAUser={setAUser}/>} />
         <Route path="/dashboard" element={<Dashboard aUser={aUser} setAUser={setAUser}/>} />
         <Route path="/game" element={<Game />}/>
-        <Route path="/collection" element={<Collection />}/>
+        <Route path="/collection" element={<CollectionContainer />}/>
       </Routes>
     </div>
   );
