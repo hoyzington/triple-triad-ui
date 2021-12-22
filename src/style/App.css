@@ -4,7 +4,7 @@ nav, footer, #main-container, #status-bar, #save-button {
   align-items: center;
 }
 
-nav, footer, #save-button {
+nav, footer, #save-button, #deck-list {
   font-family: 'IM Fell DW Pica', serif;
   font-weight: 500;
 }
@@ -98,17 +98,30 @@ nav {
   height: 23.5vh;
   width: 103vh;
   justify-content: space-around;
-  padding: 1.75vh;
+  padding: 1.75vh 1.25vh;
   /* background-color: hsla(0, 0%, 41%, 0.5); */
+}
+
+#deck-list, #save-button {
+  width: 17vh;
+  padding: 1vh;
+  border-radius: .5vh;
+
+}
+
+#deck-list {
+  height: 10vh;
+  margin: 0vh .5vh .5vh .5vh;
+  overflow-y: scroll;
+  border: .25vh solid rgba(99, 50, 15, 0.5);
+  box-shadow: 0px 0px 3px rgba(99, 50, 15, 0.5);
+  font-size: 1.75vh;
 }
 
 #save-button {
   height: 4vh;
-  width: 17vh;
-  border-radius: 0.5vh;
+  margin: .5vh .5vh 0vh .5vh;
   font-size: 3vh;
-  /* font-stretch: ultra-expanded; */
-  /* color: rgba(255, 237, 74, 0.938); */
   color: rgba(223, 222, 221, 0.9);
   background-color: rgba(99, 50, 15, 0.5);
   box-shadow: 0px 0px 6px rgba(99, 50, 15, 0.5);

@@ -67,16 +67,24 @@ export default function CollectionContainer() {
     )
   }
 
+  const [deck, setDeck] = useState([...Array(5)])
+  const [deckName, setDeckName] = useState('');
+  const [decks, setDecks] = useState([]);
+
   function saveDeck(name) {
-    const deckSize = newDeck.length;
+    const deckSize = deck.length;
     if (deckSize === 5) {
-      const array = newDeck.map(card => card.id);
+      const array = deck.map(card => card.id);
       const result = {
         deckName: name,
         cards: array,
-        deckOwner: sessionStorage.getItem("user_cached").id,
+        deckOwner: JSON.parse(sessionStorage.getItem("user_cached")).id,
       };
-      ttClient.post("/deck/save", result);
+      // console.log(result)
+      ttClient.post("/deck/save", result).then(() => {
+        setDeck([]);
+        setHiddenCards([]);
+      })
     }
   }
 
@@ -91,6 +99,12 @@ export default function CollectionContainer() {
         func={handleCardClick}
         cardClass="card-image"
         saveDeck={saveDeck}
+        deck={deck}
+        decks={decks}
+        deckName={deckName}
+        setDeck={setDeck}
+        setDecks={setDecks}
+        setDeckName={setDeckName}
       />
       <Collection
         cards={filterCollection()}

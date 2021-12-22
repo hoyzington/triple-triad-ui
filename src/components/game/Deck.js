@@ -4,15 +4,17 @@ import DeckCell from './DeckCell';
 import { useEffect, useState } from "react";
 import getDeck from '../../remote/getDeck';
 
-export default function Deck({ klass, cards, player, played, chosenCard, func, saveDeck }) {
+export default function Deck({ klass, cards, player, played, chosenCard, func, saveDeck, deck, deckName, decks, setDeck, setDeckName, setDecks }) {
 
-  const [deck, setDeck] = useState(cards || [...Array(5)])
-  const [deckName, setDeckName] = useState('');
-  const [decks, setDecks] = useState([]);
+  const getDecks = async () => {
+    const response = await getDeck();
+    setDecks(response)
+  }
 
-  // useEffect(() => {setDecks(getDeck())}, []);
+  useEffect(() => getDecks(), [])
 
   function renderDeckCells() {
+    // console.log(deck, decks)
     let position = 1;
     return deck.map((el, i) => {
       let chosen;
@@ -46,23 +48,33 @@ export default function Deck({ klass, cards, player, played, chosenCard, func, s
     });
   }
 
-  function handleDeckClick(deckId) {
-    setDeck(
-      decks.find(deck => deck.id === deckId)
-    )
+  function handleDeckClick(d) {
+    console.log(d)
+    setDeck(d.cards)
+    console.log(d)
+    console.log(d.cards)
   }
 
   function renderDeckList() {
-    decks.map(deck => (
-      <button 
-        type='button' 
-        id='deck-list-btn'>{deck.name}
-        onClick={() => handleDeckClick(deck.id)}
-      </button>
-    ))
-    return (
-      <div id='deck-list'></div>
-    )
+    if (decks.length > 0) {
+      return (
+        <div id='deck-list'>
+          {decks.map(deck => (
+            <button 
+              key={deck.id}
+              type='button' 
+              id='deck-list-btn'
+              onClick={() => handleDeckClick(deck)}
+            >{deck.deckName}
+            </button>
+          ))}
+        </div>
+      )
+    } else {
+      return (
+        <div id='deck-list'>No Saved Decks</div>
+      )
+    }
   }
 
   function handleChange(e) {
@@ -87,7 +99,6 @@ export default function Deck({ klass, cards, player, played, chosenCard, func, s
             SAVE
           </NavLink>
         </>
-
       )
     }
   }
@@ -97,8 +108,10 @@ export default function Deck({ klass, cards, player, played, chosenCard, func, s
   return (
     <div id={id} className={klass}>
       {renderDeckCells()}
-      {renderDeckList()}
-      {renderSaveButton()}
+      <div id='deck-form'>
+        {renderDeckList()}
+        {renderSaveButton()}
+      </div>
     </div>
   );
 } 
