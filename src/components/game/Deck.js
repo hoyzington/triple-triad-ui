@@ -1,9 +1,10 @@
+import { NavLink } from 'react-router-dom';
 import GridCell from './GridCell';
 import DeckCell from './DeckCell';
 
-export default function Deck({ klass, cards, player, played, chosenCard, func }) {
+export default function Deck({ klass, cards, player, played, chosenCard, func, saveDeck }) {
 
-  function createDeckCells() {
+  function renderDeckCells() {
     let position = 1;
     return [...Array(5)].map((el, i) => {
       let chosen;
@@ -37,11 +38,22 @@ export default function Deck({ klass, cards, player, played, chosenCard, func })
     });
   }
 
+  function renderSaveButton() {
+    if (klass === "collection-deck") {
+      return (
+        <NavLink id="save-button" to="#" onClick={() => saveDeck()}>
+          S<br/>A<br/>V<br/>E
+        </NavLink>
+      )
+    }
+  }
+
   const id = `deck-${player}`
 
   return (
     <div id={id} className={klass}>
-      {createDeckCells()}
+      {renderDeckCells()}
+      {renderSaveButton()}
     </div>
   );
 } 

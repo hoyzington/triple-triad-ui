@@ -19,7 +19,7 @@ export default function Collection({ cards, func, cardClass }) {
     })
   }
 
-  console.log(cards.length)
+  // console.log(cards.length)
 
   return (
     <div id="collection">

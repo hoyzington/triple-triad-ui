@@ -29,16 +29,17 @@ export default function CollectionContainer() {
     );
 
   const [hiddenCards, setHiddenCards] = useState([]);
-  const [deck, setDeck] = useState([]);
+  // const currentDeck = sessionStorage.getItem("deck") || [];
+  const [newDeck, setNewDeck] = useState([]);
 
   function handleCardClick(card, loc) {
     if (loc === "collection") {
       hideCardInCollection(card);
       const change = [
-        ...deck,
+        ...newDeck,
         card,
       ]
-      setDeck(change);
+      setNewDeck(change);
     } else {
       removeCardFromDeck(card);
       showCardInCollection(card);
@@ -59,8 +60,8 @@ export default function CollectionContainer() {
   }
 
   function removeCardFromDeck(card) {
-    const change = removeCard(deck, card);
-    setDeck(change);
+    const change = removeCard(newDeck, card);
+    setNewDeck(change);
   }
 
   function removeCard(cards, card) {
@@ -77,21 +78,25 @@ export default function CollectionContainer() {
     )
   }
 
-  console.log(collection.length)
-  console.log(hiddenCards)
+  function saveDeck() {
+    const deckSize = newDeck.length;
+    if (deckSize === 5) {
+      sessionStorage.setItem("deck", newDeck);
+    }
+  }
 
   return (
     <div id="collection-container">
       <Deck
         klass="collection-deck"
-        cards={deck}
+        cards={newDeck}
         player="2"
         played="false"
         chosenCard={null}
         func={handleCardClick}
         cardClass="card-image"
+        saveDeck={saveDeck}
       />
-      <button type="button" onClick={console.log("Deck saved!")}>Save</button>
       <Collection
         cards={filterCollection()}
         func={handleCardClick}
