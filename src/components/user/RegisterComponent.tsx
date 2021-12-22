@@ -1,9 +1,6 @@
 import { SyntheticEvent, useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import RegisterUser from '../../models/RegisterUser';
 import User from "../../models/User";
-
-import PrincipalExtension from '../../models/PrincipalExtension';
 import { register } from '../../remote/user-service';
 
 interface IRegisterProps {
@@ -11,7 +8,7 @@ interface IRegisterProps {
   setAUser: (aUser: User| undefined) => void
 }
 
-export function RegisterComponent(props: IRegisterProps) {
+export function RegisterComponent() {
 
 
   const [username, setUsername] = useState('');
@@ -19,6 +16,7 @@ export function RegisterComponent(props: IRegisterProps) {
   const [errorMessage, setErrorMessage] = useState('');
   const [matchingPassword, setMatchingPassword] = useState('');
 
+  const stored =  window.sessionStorage.getItem("user_cached");
 
   let updateUsername = (e: SyntheticEvent) => {
     setUsername((e.target as HTMLInputElement).value);
@@ -34,11 +32,9 @@ export function RegisterComponent(props: IRegisterProps) {
 
   let regNewUser = async () => {
     // --- test
-    // setFirstName ( "aaaa");
-    // setLastName ( "aaaa");
-    // setEmail ( "aaaa@gmail.com");
     // setUsername ( "aaaa");
     // setPassword ( "a1aaDa#aaa");
+    // setMatchingPassword ( "a1aaDa#aaa");
     // --- test //
 
     if (!username || !password || !matchingPassword) {
@@ -53,7 +49,6 @@ export function RegisterComponent(props: IRegisterProps) {
 
     try {
       let principal = await register({username, password, matchingPassword});
-      props.setAUser(principal);
       window.sessionStorage.setItem("user_cached", JSON.stringify(principal));
     } catch (e: any) {
       setErrorMessage(e.message);
@@ -61,7 +56,7 @@ export function RegisterComponent(props: IRegisterProps) {
   }
 
   return (
-    props.aUser ? <Navigate to="/dashboard"/> : 
+    stored ? <Navigate to="/dashboard"/> : 
       <>
         <div >
         <h4>Register your account</h4>

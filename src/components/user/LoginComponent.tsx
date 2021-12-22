@@ -1,29 +1,15 @@
-import { SyntheticEvent, useState } from "react";
-import { Navigate } from "react-router-dom";
-import PrincipalExtension from '../../models/PrincipalExtension';
-import { authenticate } from "../../remote/auth-service";
-import User from '../../models/User';
+import { SyntheticEvent, useState } from 'react';
+import { Navigate } from 'react-router-dom';
+import { authenticate } from '../../remote/auth-service';
+import { getUserFromSession } from '../../remote/user-service';
 
-// interface ILoginProps {
-//     currentUser: Principal | undefined,
-//     setCurrentUser: (nextUser: Principal| undefined) => void
-// }
-interface ILoginProps {
-  aUser: User | undefined,
-  setAUser: (aUser: User| undefined) => void
-}
-
-export function LoginComponent(props: ILoginProps) {
+export function LoginComponent() {
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const stored =  window.sessionStorage.getItem("user_cached");
-  if (stored) {
-    props.setAUser(JSON.parse(stored));
-    console.log(props.aUser);
-  }
+  let storedUser  =  getUserFromSession ();
 
   let updateUsername = (e: SyntheticEvent) => {
     setUsername((e.target as HTMLInputElement).value);
@@ -40,17 +26,21 @@ export function LoginComponent(props: ILoginProps) {
     }
 
     try {
-      let principal = await authenticate({username, password});
-      console.log(principal);
-      props.setAUser(principal);
-      window.sessionStorage.setItem("user_cached", JSON.stringify(principal));
+        let principal = await authenticate({username, password});
+        console.log(principal);
+        window.sessionStorage.setItem("user_cached", JSON.stringify(principal));
+
+        let storedUser  =  getUserFromSession ();
+        if (storedUser ){
+          window.location.reload();
+        }
     } catch (e: any) {
       setErrorMessage(e.message);
     }
   }
 
   return (
-    props.aUser ? <Navigate to="/dashboard"/> : 
+    storedUser ? <Navigate to="/dashboard"/> : 
     <>
       <div>
         <h2>Log in to your account</h2>
