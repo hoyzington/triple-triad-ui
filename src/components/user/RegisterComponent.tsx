@@ -2,6 +2,7 @@ import { SyntheticEvent, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import User from "../../models/User";
 import { register } from '../../remote/user-service';
+import { getUserFromSession } from '../../remote/user-service';
 
 interface IRegisterProps {
   aUser: User | undefined,
@@ -50,6 +51,10 @@ export function RegisterComponent() {
     try {
       let principal = await register({username, password, matchingPassword});
       window.sessionStorage.setItem("user_cached", JSON.stringify(principal));
+      let storedUser  =  getUserFromSession ();
+      if (storedUser ){
+        window.location.reload();
+      }
     } catch (e: any) {
       setErrorMessage(e.message);
     }
