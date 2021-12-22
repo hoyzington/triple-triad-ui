@@ -15,3 +15,13 @@ export const register = async (newUser: { username: string, password: string, ma
 
   return resp.data as User;
 }
+
+export function getUserFromSession ():(User| null) {
+
+  let stored =  window.sessionStorage.getItem("user_cached");
+  if (stored =="" ){
+     return  null;
+  }else{
+    return  JSON.parse(stored);
+  }
+}
