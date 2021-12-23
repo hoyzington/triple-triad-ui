@@ -50,7 +50,7 @@ export default function Deck({ played, cardClickFunc, saveDeck, deck, setDeck, d
               <button 
                 key={deck.id}
                 type='button' 
-                id='deck-list-btn'
+                className='deck-list-btn'
                 onClick={() => handleDeckClick(deck)}
               >{deck.deckName}
               </button>
