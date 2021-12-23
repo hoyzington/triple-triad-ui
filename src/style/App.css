@@ -4,7 +4,7 @@ nav, footer, #main-container, #status-bar, #save-button {
   align-items: center;
 }
 
-nav, footer, #save-button, #deck-list {
+nav, footer, .form, #save-button, #deck-list {
   font-family: 'IM Fell DW Pica', serif;
   font-weight: 500;
 }
@@ -13,18 +13,19 @@ nav, footer {
   width: 100vw;
   color: rgba(0, 0, 0, 0.8);
   background-color: hsla(0, 0%, 41%, 0.35);
+  backdrop-filter: blur(1px);
 }
 
 footer {
-  height: 5.5vh;
   position: absolute;
+  height: 5.5vh;
   bottom: 0px;
   font-size: 2.25vh;
 }
 
 nav {
-  height: 6vh;
   position: fixed;
+  height: 6vh;
   top: 0px;
   font-size: 3vh;
 }
@@ -47,14 +48,40 @@ nav {
 }
 
 #brand {
-  top: 9vh;
+  top: .1vh;
   font-family: 'Grechen Fuemen', cursive;
-  font-size: 26vh;
+  font-size: 35vh;
   color: rgba(99, 50, 15, 0.35);
   /* background-color: hsla(0, 0%, 41%, 0.5); */
 }
 
-#game, #grid, #status-bar, .game-deck, .deck-cell, .score, #brand, .card {
+.form {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  justify-items: center;
+  align-items: center;
+  height: 40vh;
+  width: 30vh;
+  background-color: hsla(25, 10%, 37%, 0.6);
+  border-radius: .5vh;
+  padding: 2vh 5vh 5vh 5vh;
+  margin-bottom: 2.5vh;
+  font-size: 2.75vh;
+  backdrop-filter: blur(5px);
+  color: rgba(223, 223, 223, 0.95);
+  /* text-shadow: -.15vh 0 black, 0 .15vh black, .15vh 0 black, 0 -.15vh black; */
+
+}
+
+button.form-btn {
+  margin-top: 2vh;
+  font-size: 2.5vh;
+  width: 18vh;
+}
+
+.form, #game, #grid, #status-bar, .game-deck, .deck-cell, .score, #brand, .card {
   position: absolute;
   z-index: -1;
 }
@@ -106,7 +133,6 @@ nav {
   width: 17vh;
   padding: 1vh;
   border-radius: .5vh;
-
 }
 
 #deck-list {
@@ -122,13 +148,8 @@ nav {
   height: 4vh;
   margin: .5vh .5vh 0vh .5vh;
   font-size: 3vh;
-  color: rgba(223, 222, 221, 0.9);
   background-color: rgba(99, 50, 15, 0.5);
   box-shadow: 0px 0px 6px rgba(99, 50, 15, 0.5);
-}
-
-#save-button:hover {
-  color: rgba(238, 238, 238, 0.9);
 }
 
 #game {

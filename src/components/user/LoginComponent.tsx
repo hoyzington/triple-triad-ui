@@ -41,16 +41,22 @@ export function LoginComponent() {
 
   return (
     storedUser ? <Navigate to="/collection"/> : 
-    <>
-      <div>
-        <h2>Log in to your account</h2>
-        <input type="text" id="username" placeholder="Enter your username" onChange={updateUsername}/>
-        <br/><br/>
-        <input type="password" id="password" placeholder="Enter your password" onChange={updatePassword}/>
-        <br/><br/>
-        <button id="login-button" onClick={login}>Login</button>
-        <br/><br/>
-      </div>
-    </>
+    <div className='form'>
+      <p>Log Into Your Account</p>
+      <input 
+        type="text" 
+        id="username" 
+        placeholder="Enter your username" 
+        onChange={updateUsername} 
+        autoFocus
+        className='form-input'/>
+      <input 
+        type="password" 
+        id="password"
+        placeholder="Enter your password" 
+        onChange={updatePassword}
+        className='form-input' />
+      <button className='form-btn' onClick={login}>LOGIN</button>
+    </div>
   );
 }

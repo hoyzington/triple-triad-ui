@@ -58,19 +58,29 @@ export function RegisterComponent() {
 
   return (
     stored ? <Navigate to="/collection"/> : 
-      <>
-        <div >
-        <h4>Register your account</h4>
-          <input type="text" id="username" placeholder="Enter your username" onChange={updateUsername}/>
-          <br/><br/>
-          <input type="password" id="password" placeholder="Enter your password" onChange={updatePassword}/>
-          <br/><br/>
-          <input type="password" id="matchingPassword" placeholder="Renter your password" onChange={updateMatchingPassword}/>
-          <br/><br/>
-          <button id="login-button" onClick={regNewUser}>register</button>
-          <br/><br/>
-        </div>
-      </>
+    <div className='form'>
+      <p>Create A New Account</p>
+      <input
+        type="text"
+        id="username"
+        className='form-input'
+        placeholder="Enter your username"
+        onChange={updateUsername}
+        autoFocus/>
+      <input
+        type="password"
+        id="password"
+        className='form-input'
+        placeholder="Enter your password"
+        onChange={updatePassword}/>
+      <input
+        type="password"
+        id="matchingPassword"
+        className='form-input'
+        placeholder="Renter your password"
+        onChange={updateMatchingPassword}/>
+      <button className='form-btn' onClick={regNewUser}>CREATE</button>
+    </div>
   );
 
 }
