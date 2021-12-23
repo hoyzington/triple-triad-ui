@@ -27,7 +27,7 @@ export function LoginComponent() {
 
     try {
         let principal = await authenticate({username, password});
-        console.log(principal);
+        // console.log(principal);
         window.sessionStorage.setItem("user_cached", JSON.stringify(principal));
 
         let storedUser  =  getUserFromSession ();
