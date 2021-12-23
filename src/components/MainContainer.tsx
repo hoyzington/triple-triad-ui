@@ -15,7 +15,7 @@ export default function MainContainer() {
       <Brand />
       <Routes>
         <Route path="/*" element={<Home />} />
-        <Route path="/" element={<Home />}/>
+        <Route path="/" element={<RegisterComponent />}/>
         <Route path="/login" element={<LoginComponent />} />
         <Route path="/register" element={<RegisterComponent />} />
         <Route path="/dashboard" element={<CollectionContainer />} />
