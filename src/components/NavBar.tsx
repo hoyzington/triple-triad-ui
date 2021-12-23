@@ -6,6 +6,7 @@ export default function NavBar() {
       <span id="navbar">
         <NavLink className="navlink" to="/">Home</NavLink>
         <NavLink className="navlink" to="/login">Login</NavLink>
+        <NavLink className="navlink" to="/login" onClick={() => sessionStorage.removeItem("user_cached")}>Logout</NavLink>
         <NavLink className="navlink" to="/register">Register</NavLink>
         <NavLink className="navlink" to="/game">Game</NavLink>
         <NavLink className="navlink" to="/multiplayer">Multiplayer</NavLink>

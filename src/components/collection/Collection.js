@@ -1,9 +1,9 @@
 import Card from "./../game/Card";
 
-export default function Collection({ cards, func, cardClass }) {
+export default function Collection({ collection, func, cardClass }) {
 
   function renderCollection() {
-    return cards.map(card => {
+    return collection.map(card => {
       return (
         <Card
           key={card.id}
@@ -18,8 +18,6 @@ export default function Collection({ cards, func, cardClass }) {
       )
     })
   }
-
-  // console.log(cards.length)
 
   return (
     <div id="collection">

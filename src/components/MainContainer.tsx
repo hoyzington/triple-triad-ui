@@ -18,7 +18,7 @@ export default function MainContainer() {
         <Route path="/" element={<Home />}/>
         <Route path="/login" element={<LoginComponent />} />
         <Route path="/register" element={<RegisterComponent />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<CollectionContainer />} />
         <Route path="/game" element={<Game />}/>
         <Route path="/collection" element={<CollectionContainer />}/>
       </Routes>

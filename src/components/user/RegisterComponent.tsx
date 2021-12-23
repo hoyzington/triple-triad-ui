@@ -1,5 +1,5 @@
 import { SyntheticEvent, useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import User from "../../models/User";
 import { register } from '../../remote/user-service';
 
@@ -10,13 +10,13 @@ interface IRegisterProps {
 
 export function RegisterComponent() {
 
-
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [matchingPassword, setMatchingPassword] = useState('');
 
-  const stored =  window.sessionStorage.getItem("user_cached");
+  const stored = window.sessionStorage.getItem("user_cached");
 
   let updateUsername = (e: SyntheticEvent) => {
     setUsername((e.target as HTMLInputElement).value);
@@ -50,13 +50,14 @@ export function RegisterComponent() {
     try {
       let principal = await register({username, password, matchingPassword});
       window.sessionStorage.setItem("user_cached", JSON.stringify(principal));
+      navigate("/collection");
     } catch (e: any) {
       setErrorMessage(e.message);
     }
   }
 
   return (
-    stored ? <Navigate to="/dashboard"/> : 
+    stored ? <Navigate to="/collection"/> : 
       <>
         <div >
         <h4>Register your account</h4>

@@ -40,7 +40,7 @@ export function LoginComponent() {
   }
 
   return (
-    storedUser ? <Navigate to="/dashboard"/> : 
+    storedUser ? <Navigate to="/collection"/> : 
     <>
       <div>
         <h2>Log in to your account</h2>

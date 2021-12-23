@@ -1,34 +1,30 @@
 import { useState } from "react";
-import Deck from "./../game/Deck";
+import BuildingDeck from "./BuildingDeck";
 import Collection from "./Collection";
 import ttClient from "./../../remote/TT-Client";
 
 export default function CollectionContainer() {
-
-  // console.log(
-  //   JSON.parse(sessionStorage.getItem("user_cached")).cardCollection,
-  //   "hi",
-  //   JSON.parse(sessionStorage.getItem("cardList")),
-  //   "hello"
-  // )
 
   const collection = JSON.parse(sessionStorage.getItem("user_cached"))
     .cardCollection.filter(c => c != null).map(
       i => JSON.parse(sessionStorage.getItem("cardList"))[i - 1]
     );
 
-  const [hiddenCards, setHiddenCards] = useState([]);
-  const currentDeck = [];
-  const [newDeck, setNewDeck] = useState(currentDeck);
+    const [decks, setDecks] = useState([]);
+    const [deck, setDeck] = useState([...Array(5)])
+    const [deckName, setDeckName] = useState('');
+    const [hiddenCards, setHiddenCards] = useState([]);
 
-  function handleCardClick(card, loc) {
+    function handleCardClick(card, loc) {
     if (loc === "collection") {
       hideCardInCollection(card);
-      const change = [
-        ...newDeck,
-        card,
-      ]
-      setNewDeck(change);
+      for (let i = 0; i < 5; i++) {
+        if (!deck[i]) {
+          deck[i] = card;
+          setDeck(deck);
+          break;
+        }
+      }
     } else {
       removeCardFromDeck(card);
       showCardInCollection(card);
@@ -44,20 +40,25 @@ export default function CollectionContainer() {
   }
 
   function showCardInCollection(card) {
-    const change = removeCard(hiddenCards, card)
+    const change = remove(hiddenCards, card)
     setHiddenCards(change)
   }
 
   function removeCardFromDeck(card) {
-    const change = removeCard(newDeck, card);
-    setNewDeck(change);
+    for (let i = 0; i < 5; i++) {
+      if (deck[i] && deck[i].id === card.id) {
+        deck[i] = null;
+        setDeck(deck);
+        break;
+      }
+    }
   }
 
-  function removeCard(cards, card) {
-    const cardIdx = cards.findIndex(crd => crd.id === card.id);
+  function remove(group, item) {
+    const idx = group.findIndex(itm => itm.id === item.id);
     return [
-      ...cards.slice(0, cardIdx),
-      ...cards.slice(cardIdx + 1),
+      ...group.slice(0, idx),
+      ...group.slice(idx + 1),
     ]
   }
 
@@ -66,10 +67,6 @@ export default function CollectionContainer() {
       !hiddenCards.find(crd => crd.id === card.id)
     )
   }
-
-  const [deck, setDeck] = useState([...Array(5)])
-  const [deckName, setDeckName] = useState('');
-  const [decks, setDecks] = useState([]);
 
   function saveDeck(name) {
     const deckSize = deck.length;
@@ -80,7 +77,6 @@ export default function CollectionContainer() {
         cards: array,
         deckOwner: JSON.parse(sessionStorage.getItem("user_cached")).id,
       };
-      // console.log(result)
       ttClient.post("/deck/save", result).then(() => {
         setDeck([]);
         setHiddenCards([]);
@@ -90,24 +86,20 @@ export default function CollectionContainer() {
 
   return (
     <div id="collection-container">
-      <Deck
-        klass="collection-deck"
-        cards={newDeck}
-        player="2"
+      <BuildingDeck
         played="false"
-        chosenCard={null}
-        func={handleCardClick}
-        cardClass="card-image"
-        saveDeck={saveDeck}
+        cardClickFunc={handleCardClick}
         deck={deck}
-        decks={decks}
-        deckName={deckName}
         setDeck={setDeck}
+        decks={decks}
         setDecks={setDecks}
+        deckName={deckName}
         setDeckName={setDeckName}
+        saveDeck={saveDeck}
+        setHiddenCards={setHiddenCards}
       />
       <Collection
-        cards={filterCollection()}
+        collection={filterCollection()}
         func={handleCardClick}
         cardClass="card-image"
       />

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Deck from './Deck';
+import GameDeck from './GameDeck';
 import Grid from './Grid';
 import StatusBar from './StatusBar';
 
@@ -75,14 +75,14 @@ export default function Game() {
     <div id="game">
       <Grid cards={playedCards} func={handleGridCellClick} />
       <StatusBar status={status} />
-      <Deck
+      <GameDeck
         cards={player1Deck}
         player="1"
         chosenCard={isChosenCardPresent("1")}
         func={handleCardClick}
         klass="game-deck"
       />
-      <Deck
+      <GameDeck
         cards={player2Deck}
         player="2"
         chosenCard={isChosenCardPresent("2")}

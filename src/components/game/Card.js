@@ -8,7 +8,7 @@ export default function Card(props) {
         cardClass += " chosen"
       }
       return (
-        <div className={cardClass}>
+        <div>
           <a href="#" onClick={() => clickFunc(card, loc)}>
             <img src={card.img} />
           </a>
