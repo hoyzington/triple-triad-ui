@@ -1,7 +1,5 @@
 # TripleTriadUI
 
-NYI - check back 01/05/22
-
 ## Project Description
 
 Triple Triad is a staple deckbuilding competitive card game found in the Final Fantasy game series. This application focuses on the newest edition of the game from the massively multiplayer Final Fantasy XIV. The game consists of two players, each with their own deck of 6 unique cards, and hundreds of possible combinations of cards from a vast collection that grows with every update to the live game. Our API collects and stores to the database relevant information about the cards from an outside API to keep up to date with the growing collection database. The user interface supports account creation, authentication, and collection and deck management.
@@ -29,19 +27,19 @@ To-do list:
 * Finish Game implementation
 
 ## Getting Started
-   
-(include git clone command)
-(include all environment setup steps)
-
-> Be sure to include BOTH Windows and Unix command  
-> Be sure to mention if the commands only work on a specific platform (eg. AWS, GCP)
-
-- All the `code` required to get started
-- Images of what it should look like
+   React ui built with NodeJS
+   First install [Node](https://nodejs.org/en/download/) then pick a place for the ui files to exist and run:
+   `git clone https://github.com/hoyzington/triple-triad-ui/tree/dev`  
+   `cd /triple-triad-ui`  
+   `npm install`  
+   At this point you are ready to start the ui portion of our app, however you should have the [api running first](https://github.com/Dragonimi/TripleTriadAPI/tree/dev)  
+   When that is complete you are ready to run:  
+   `npm start`  
+   This will take a while to warm up on the first run   
 
 ## Usage
 
-> Here, you instruct other people on how to use your project after they’ve installed it. This would also be a good place to include screenshots of your project in action.
+After you finish the set up above and the application spins up it should open a new tab in your browser at localhost:3000, Using it should be very simple, create an account, log in, and after that you can build a deck in the collection page and save it.
 
 ## Contributors
 
@@ -50,7 +48,3 @@ To-do list:
 * Jong Soo Chong
 * William Nelson
 * Wilson Neely
-
-## License
-
-This project uses the following license: [<license_name>](<link>).
